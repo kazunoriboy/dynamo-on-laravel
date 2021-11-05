@@ -22,7 +22,7 @@ chmod +x ./setup.sh
 
 sailはターミナルのエイリアスを作っておくと便利です。
 
-zshなら.zshrcにbashなら./bashrcに下記を追加
+zshなら.zshrcにbashなら.bashrcに下記を追加
 ```
 alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
 ```
