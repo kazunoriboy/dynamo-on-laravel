@@ -33,3 +33,11 @@ alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
 sail artisan key:generate
 ```
 
+
+## laravel-dynamodbをインストールする
+
+```shell
+sail composer require baopham/dynamodb
+sail artisan vendor:publish --provider 'BaoPham\DynamoDb\DynamoDbServiceProvider'
+```
+
