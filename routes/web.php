@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\Item;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +17,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $items = Item::all();
+    return view('list', ['items' => $items]);
 });
+
+Route::get('item', function (Request $request) {
+    $item = new Item;
+    $item->id = rand(1, 100000);
+    $item->release_date = Carbon::now()->format('Y-m-d');
+    $item->name = $request->name;
+    $item->save();
+    return redirect('/');
+})->name('store');
